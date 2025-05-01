@@ -14,7 +14,7 @@ config/name="custom-horror-game"
 config/tags=PackedStringArray("3d")
 run/main_scene="uid://bfr5xnbprkwa0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://34efiuvgtcy1"
 
 [filesystem]
 
