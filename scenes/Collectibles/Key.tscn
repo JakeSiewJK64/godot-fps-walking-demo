@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8nstma4uc627"]
+
+[ext_resource type="Script" uid="uid://friaeoyaqlk7" path="res://scripts/Environment/Item.gd" id="1_fttkb"]
+[ext_resource type="ArrayMesh" uid="uid://c4bttkulddi3w" path="res://assets/models/key/key.obj" id="2_fttkb"]
+[ext_resource type="Texture2D" uid="uid://cw0r4rk6y5cv6" path="res://assets/images/key.png" id="2_r880y"]
+[ext_resource type="AudioStream" uid="uid://4gdy8oj8dfpl" path="res://assets/audio/sfx/keys_dropping.mp3" id="3_avavn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r880y"]
+size = Vector3(35.657, 137.141, 63.0848)
+
+[node name="Key" type="CharacterBody3D"]
+script = ExtResource("1_fttkb")
+item_name = "Key"
+item_type = "key_item"
+item_image = ExtResource("2_r880y")
+item_pickup_sound = ExtResource("3_avavn")
+metadata/node_type = "item"
+metadata/item_type = ""
+metadata/name = ""
+
+[node name="KeyModel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-11, -0.001, 0, 0.001, -4.37114e-11, 0, 0, 0, 0.001, 0, -0.0569106, 0)
+mesh = ExtResource("2_fttkb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-11, -0.001, 0, 0.001, -4.37114e-11, 0, 0, 0, 0.001, -0.00342853, -0.0562249, 0.000685486)
+shape = SubResource("BoxShape3D_r880y")

@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/*.uid": true,
+    "**/*.glb": true,
+    "**/*.blend": true,
+    "**/*.import": true,
+    ".godot": true,
+  },
+  "editor.insertSpaces": false,
+}

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://36pfa20xdr8k"]
+
+[ext_resource type="Texture2D" uid="uid://2dbsspykhw4" path="res://assets/models/trailer_park/textures/TilesSmall.jpg" id="1_386q3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42nnl"]
+albedo_texture = ExtResource("1_386q3")
+
+[sub_resource type="BoxMesh" id="BoxMesh_x00ka"]
+size = Vector3(2, 0.001, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_muqbc"]
+size = Vector3(2, 0.001, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_42nnl")
+mesh = SubResource("BoxMesh_x00ka")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_muqbc")

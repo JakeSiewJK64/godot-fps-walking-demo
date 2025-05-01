@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://mfeg581akyyx"]
+
+[ext_resource type="PackedScene" uid="uid://tg8vfmrafan4" path="res://scenes/Environment/Props/DoorArchway.tscn" id="1_eiq6o"]
+
+[node name="1x1_Doorway" type="Node3D"]
+
+[node name="DoorArchway" parent="." instance=ExtResource("1_eiq6o")]

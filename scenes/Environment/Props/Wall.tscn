@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwh518urjr4u1"]
+
+[ext_resource type="Texture2D" uid="uid://cb2umrj5dk15y" path="res://assets/models/industrial/Textures/Asphalt_1-4.png" id="1_i22fv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70apu"]
+albedo_texture = ExtResource("1_i22fv")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6cej5"]
+size = Vector3(2, 0.001, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cej5"]
+size = Vector3(2, 0.001, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_70apu")
+mesh = SubResource("BoxMesh_6cej5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_6cej5")

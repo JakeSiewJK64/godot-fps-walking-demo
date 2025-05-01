@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://drxnixkf4k5lf"]
+
+[ext_resource type="PackedScene" uid="uid://bhal4crdjf6c6" path="res://scenes/Environment/Groups/Floor/3x2_floor.tscn" id="1_k7afb"]
+[ext_resource type="PackedScene" uid="uid://8i8rl7eg3kwa" path="res://scenes/Environment/Groups/Wall/3x1_wall.tscn" id="2_mlw22"]
+[ext_resource type="PackedScene" uid="uid://mfeg581akyyx" path="res://scenes/Environment/Groups/Wall/1x1_wall_door_archway.tscn" id="3_8ll18"]
+[ext_resource type="PackedScene" uid="uid://c3qcm7jgr1mlm" path="res://scenes/Environment/Groups/Wall/1x2_wall.tscn" id="3_tlbco"]
+[ext_resource type="PackedScene" uid="uid://cubaosdh7rx5p" path="res://scenes/Environment/Groups/Ceiling/3x2_ceiling.tscn" id="5_k7afb"]
+[ext_resource type="PackedScene" uid="uid://ifadfbnclye5" path="res://scenes/Environment/Props/Light.tscn" id="6_kmqe7"]
+
+[node name="Lobby" type="Node3D"]
+
+[node name="FloorGroups" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -2)
+
+[node name="3x2_floor" parent="FloorGroups" instance=ExtResource("1_k7afb")]
+
+[node name="WallGroups" type="Node3D" parent="."]
+
+[node name="WallGroup1" type="Node3D" parent="WallGroups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+
+[node name="2x2Wall" parent="WallGroups/WallGroup1" instance=ExtResource("3_tlbco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="2x2Wall2" parent="WallGroups/WallGroup1" instance=ExtResource("3_tlbco")]
+
+[node name="WallGroup2" type="Node3D" parent="WallGroups"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="WallGroup1" type="Node3D" parent="WallGroups/WallGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31134e-07, 1, 3)
+
+[node name="1x1_Doorway" parent="WallGroups/WallGroup2/WallGroup1" instance=ExtResource("3_8ll18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 2.38419e-07)
+
+[node name="2x2Wall" parent="WallGroups/WallGroup2/WallGroup1" instance=ExtResource("3_tlbco")]
+
+[node name="WallGroup2" type="Node3D" parent="WallGroups/WallGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37114e-08, 1, -1)
+
+[node name="2x2Wall3" parent="WallGroups/WallGroup2/WallGroup2" instance=ExtResource("2_mlw22")]
+
+[node name="CeilingGroups" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 2, -2)
+
+[node name="3x2Ceiling" parent="CeilingGroups" instance=ExtResource("5_k7afb")]
+
+[node name="LightGroup" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.49247, 0)
+
+[node name="lum_lamp_lum_lamp_0" parent="LightGroup" instance=ExtResource("6_kmqe7")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.03512, 7.48673, -2.05786)

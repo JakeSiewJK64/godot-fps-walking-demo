@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://chntysdt73lbe"]
+
+[ext_resource type="Texture2D" uid="uid://c20slww8oink7" path="res://assets/models/trailer_park/textures/WoodPlanksClean.jpg" id="2_2mu1x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qd131"]
+size = Vector3(1, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3osn"]
+albedo_texture = ExtResource("2_2mu1x")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qd131"]
+size = Vector3(1, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c06pl"]
+albedo_texture = ExtResource("2_2mu1x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd7u7"]
+albedo_texture = ExtResource("2_2mu1x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_336vy"]
+albedo_texture = ExtResource("2_2mu1x")
+
+[node name="Stairs" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qd131")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_d3osn")
+mesh = SubResource("BoxMesh_qd131")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250146, 0.250603)
+shape = SubResource("BoxShape3D_qd131")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D2"]
+material_override = SubResource("StandardMaterial3D_c06pl")
+mesh = SubResource("BoxMesh_qd131")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.500352, -0.500432)
+shape = SubResource("BoxShape3D_qd131")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="CollisionShape3D3"]
+material_override = SubResource("StandardMaterial3D_hd7u7")
+mesh = SubResource("BoxMesh_qd131")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250206, -0.249829)
+shape = SubResource("BoxShape3D_qd131")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="CollisionShape3D4"]
+material_override = SubResource("StandardMaterial3D_336vy")
+mesh = SubResource("BoxMesh_qd131")
+skeleton = NodePath("../..")

@@ -1,0 +1,321 @@
+[gd_scene load_steps=19 format=4 uid="uid://clagx6hbvwpgi"]
+
+[ext_resource type="Script" uid="uid://ydxg4yj6nwkg" path="res://scripts/Player/Player.gd" id="1_bruh7"]
+[ext_resource type="Script" uid="uid://dfaqmejgw3v6o" path="res://scripts/Player/PlayerRaycast.gd" id="2_6eyey"]
+[ext_resource type="Shader" uid="uid://ct07kch7xvmq" path="res://assets/shader/vhs_2.gdshader" id="3_d3wef"]
+[ext_resource type="Texture2D" uid="uid://cratfwsihpk54" path="res://assets/images/crosshair.svg" id="4_o4126"]
+[ext_resource type="Script" uid="uid://du2ksb2rk2q4w" path="res://scripts/Player/PlayerPauseMenu.gd" id="5_lkdrv"]
+[ext_resource type="Script" uid="uid://c5elgd8grpccf" path="res://scripts/UI/EndButton.gd" id="6_p7iby"]
+[ext_resource type="Script" uid="uid://carjboyb5usw7" path="res://scripts/Player/PlayerInteractMessage.gd" id="7_0rnld"]
+[ext_resource type="Script" uid="uid://cknl2agjxfppl" path="res://scripts/UI/MainMenuButton.gd" id="7_6eyey"]
+[ext_resource type="Script" uid="uid://5xdha7vgd1m2" path="res://scripts/Player/PlayerFlashlight.gd" id="9_jfpux"]
+[ext_resource type="Texture2D" uid="uid://ckateeuc2h8yd" path="res://assets/UI/mouse_left.svg" id="9_o4126"]
+[ext_resource type="Texture2D" uid="uid://cjrjq21ndasx1" path="res://assets/UI/keyboard_f.svg" id="10_o4126"]
+[ext_resource type="Script" uid="uid://b7armfy4h2agc" path="res://scripts/Player/PlayerStairsTrigger.gd" id="11_d3wef"]
+[ext_resource type="Texture2D" uid="uid://cllqqie50sxq8" path="res://assets/UI/keyboard_e.svg" id="11_lkdrv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
+radius = 0.2
+height = 1.4
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3vyb7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tuyoq"]
+shader = ExtResource("3_d3wef")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_smehm"]
+data = PackedByteArray("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")
+format = 3
+mix_rate = 22050
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6eyey"]
+size = Vector3(0.404053, 0.236572, 0.399658)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_bruh7")
+mouse_sensitivity = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.288497, 0)
+shape = SubResource("CapsuleShape3D_3vyb7")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603607, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+attributes = SubResource("CameraAttributesPractical_3vyb7")
+fov = 74.0
+near = 0.02
+far = 1000.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Head"]
+target_position = Vector3(0, 0, -2)
+script = ExtResource("2_6eyey")
+
+[node name="UI" type="Control" parent="Head"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ScreenEffect" type="ColorRect" parent="Head/UI"]
+visible = false
+material = SubResource("ShaderMaterial_tuyoq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="CenterContainer" parent="Head/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Head/UI/Crosshair"]
+layout_mode = 2
+texture = ExtResource("4_o4126")
+
+[node name="PauseMenu" type="ColorRect" parent="Head/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+script = ExtResource("5_lkdrv")
+
+[node name="Inventory" type="Control" parent="Head/UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Head/UI/PauseMenu/Inventory"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -224.0
+offset_right = 512.0
+offset_bottom = 188.0
+grow_vertical = 2
+columns = 4
+
+[node name="Control" type="Control" parent="Head/UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -98.0
+offset_right = 50.0
+offset_bottom = -58.0
+grow_vertical = 0
+
+[node name="EndButton" type="Button" parent="Head/UI/PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 84.0
+offset_bottom = 31.0
+grow_vertical = 0
+tooltip_text = "Ends the game and closes the window."
+text = "End game"
+script = ExtResource("6_p7iby")
+
+[node name="MainMenuButton" type="Button" parent="Head/UI/PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 96.0
+offset_bottom = -9.0
+grow_vertical = 0
+tooltip_text = "Returns to main menu."
+text = "Main Menu"
+script = ExtResource("7_6eyey")
+
+[node name="InteractTooltip" type="Control" parent="Head/UI" node_paths=PackedStringArray("richTextLabel", "textureRect")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_0rnld")
+richTextLabel = NodePath("PlayerInteractMessage")
+textureRect = NodePath("TextureRect")
+
+[node name="PlayerInteractMessage" type="RichTextLabel" parent="Head/UI/InteractTooltip"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]Open door[/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Head/UI/InteractTooltip"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_o4126")
+expand_mode = 1
+
+[node name="ControlTips" type="Control" parent="Head/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ToggleFlashlight" type="Control" parent="Head/UI/ControlTips"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Head/UI/ControlTips/ToggleFlashlight"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_top = -36.0
+offset_right = -141.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("10_o4126")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Head/UI/ControlTips/ToggleFlashlight"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Toggle flashlight"
+
+[node name="Pause" type="Control" parent="Head/UI/ControlTips"]
+layout_mode = 1
+anchors_preset = 0
+offset_top = 30.0
+offset_right = 40.0
+offset_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Head/UI/ControlTips/Pause"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_top = -36.0
+offset_right = -141.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("11_lkdrv")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Head/UI/ControlTips/Pause"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Inventory"
+
+[node name="Flashlight" type="SpotLight3D" parent="Head"]
+spot_range = 30.0
+script = ExtResource("9_jfpux")
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamWAV_smehm")
+
+[node name="StairsTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75834e-06)
+script = ExtResource("11_d3wef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StairsTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00231934, -0.870147, 0.000610352)
+shape = SubResource("BoxShape3D_6eyey")
+
+[connection signal="body_entered" from="StairsTrigger" to="StairsTrigger" method="enter_trigger"]
+[connection signal="body_exited" from="StairsTrigger" to="StairsTrigger" method="exit_trigger"]

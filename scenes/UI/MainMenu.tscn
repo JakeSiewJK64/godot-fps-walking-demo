@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfr5xnbprkwa0"]
+
+[ext_resource type="Script" uid="uid://cy4uaeb6cvrfg" path="res://scripts/UI/MainMenu.gd" id="1_11hie"]
+[ext_resource type="Script" uid="uid://cthdlies78d56" path="res://scripts/UI/MainMenuStartGameButton.gd" id="2_3h7gc"]
+[ext_resource type="Script" uid="uid://dkq6xddkx4hwh" path="res://scripts/UI/MainMenuEndGameButton.gd" id="2_58fj5"]
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176419, 0.176419, 0.176419, 1)
+script = ExtResource("1_11hie")
+
+[node name="SelectIndexIndicator" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+offset_right = 1.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 26.0
+offset_right = 20.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -70.0
+offset_right = 150.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]GAME TITLE[/center]"
+fit_content = true
+
+[node name="StartGameButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -20.0
+offset_right = 28.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+text = "START"
+script = ExtResource("2_3h7gc")
+
+[node name="EndGameButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 20.0
+offset_right = 46.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+text = "END GAME"
+script = ExtResource("2_58fj5")

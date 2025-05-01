@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhal4crdjf6c6"]
+
+[ext_resource type="PackedScene" uid="uid://36pfa20xdr8k" path="res://scenes/Environment/Props/Floor.tscn" id="1_d1hnk"]
+
+[node name="3x2_floor" type="Node3D"]
+
+[node name="FloorGroup" parent="." instance=ExtResource("1_d1hnk")]
+
+[node name="FloorGroup2" parent="." instance=ExtResource("1_d1hnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="FloorGroup3" parent="." instance=ExtResource("1_d1hnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="FloorGroup4" parent="." instance=ExtResource("1_d1hnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="FloorGroup5" parent="." instance=ExtResource("1_d1hnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="FloorGroup6" parent="." instance=ExtResource("1_d1hnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://be0eqksipkk4x"]
+
+[ext_resource type="Script" uid="uid://dy174u7f1eyab" path="res://scripts/UI/ItemContainer.gd" id="1_d25jo"]
+
+[node name="ItemContainer" type="ColorRect"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(1, 1, 1, 0.117647)
+script = ExtResource("1_d25jo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 4

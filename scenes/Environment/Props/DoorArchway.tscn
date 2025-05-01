@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://tg8vfmrafan4"]
+
+[ext_resource type="PackedScene" uid="uid://cj1eosenaswjj" path="res://scenes/Environment/Props/WoodenDoor.tscn" id="1_urn22"]
+[ext_resource type="PackedScene" uid="uid://bwh518urjr4u1" path="res://scenes/Environment/Props/Wall.tscn" id="2_ohdm4"]
+
+[node name="DoorArchway" type="Node3D"]
+
+[node name="WoodenDoor" parent="." instance=ExtResource("1_urn22")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="WallGroup" parent="." instance=ExtResource("2_ohdm4")]
+transform = Transform3D(0.325, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.676341, 1, 0)
+
+[node name="WallGroup3" parent="." instance=ExtResource("2_ohdm4")]
+transform = Transform3D(0.36, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 0.003, 1.75, 0)
+
+[node name="WallGroup2" parent="." instance=ExtResource("2_ohdm4")]
+transform = Transform3D(0.325, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.675, 1, 0)

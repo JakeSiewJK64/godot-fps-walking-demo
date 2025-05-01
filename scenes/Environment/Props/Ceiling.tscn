@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bccc2bbktpco0"]
+
+[ext_resource type="Texture2D" uid="uid://btxxj8etul2qr" path="res://assets/models/trailer_park/textures/Plastic.jpg" id="1_5ihgg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0wja"]
+albedo_texture = ExtResource("1_5ihgg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ihgg"]
+material = SubResource("StandardMaterial3D_y0wja")
+size = Vector3(2, 0.001, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wox6s"]
+size = Vector3(2, 0.001, 2)
+
+[node name="Ceiling" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_5ihgg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_wox6s")

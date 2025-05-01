@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3fyk63ukfped"]
+
+[ext_resource type="PackedScene" uid="uid://clagx6hbvwpgi" path="res://scenes/Player.tscn" id="1_w5aja"]
+[ext_resource type="PackedScene" uid="uid://bjvivn7wc0ri0" path="res://scenes/GameMap.tscn" id="2_xy3my"]
+
+[node name="Base" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_w5aja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36665, 0.912344, -3.28563)
+
+[node name="Terrain" parent="." instance=ExtResource("2_xy3my")]

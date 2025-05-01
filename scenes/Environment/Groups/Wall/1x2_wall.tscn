@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3qcm7jgr1mlm"]
+
+[ext_resource type="PackedScene" uid="uid://bwh518urjr4u1" path="res://scenes/Environment/Props/Wall.tscn" id="1_4wn23"]
+
+[node name="2x2Wall" type="Node3D"]
+
+[node name="FloorGroup1" parent="." instance=ExtResource("1_4wn23")]
+
+[node name="FloorGroup2" parent="." instance=ExtResource("1_4wn23")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2, 0, 0)

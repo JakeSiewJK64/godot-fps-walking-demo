@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgyqlsexro52"]
+
+[ext_resource type="ArrayMesh" uid="uid://cgymftilp5n8l" path="res://assets/models/Computer/Computer1.obj" id="1_k6a6o"]
+[ext_resource type="ArrayMesh" uid="uid://pshfshavbdo5" path="res://assets/models/Computer/Monitor1.obj" id="2_qm43l"]
+[ext_resource type="ArrayMesh" uid="uid://40wx0u77cwuk" path="res://assets/models/Computer/Keyboard.obj" id="3_0s0ce"]
+[ext_resource type="ArrayMesh" uid="uid://d1xm8rigfofgs" path="res://assets/models/Computer/Mouse.obj" id="4_wpa7l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wpa7l"]
+size = Vector3(1.12622, 1.02142, 1.30811)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0584717, 0.320221, -0.154053)
+shape = SubResource("BoxShape3D_wpa7l")
+
+[node name="Computer1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.702041, 0, -0.712136, 0, 1, 0, 0.712136, 0, 0.702041, -0.372319, 0.512764, -3.55578)
+mesh = ExtResource("1_k6a6o")
+skeleton = NodePath("")
+
+[node name="Monitor1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.993347, 0, -0.115163, 0, 1, 0, 0.115163, 0, 0.993347, -1.15871, 0.497547, -2.63337)
+mesh = ExtResource("2_qm43l")
+skeleton = NodePath("")
+
+[node name="Keyboard" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.725855, 0, -0.687848, 0, 1, 0, 0.687848, 0, 0.725855, -0.535315, 0.533416, -3.41232)
+mesh = ExtResource("3_0s0ce")
+skeleton = NodePath("")
+
+[node name="Mouse" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.963411, 0, -0.268029, 0, 1, 0, 0.268029, 0, 0.963411, -1.61174, 0.538383, -2.92384)
+mesh = ExtResource("4_wpa7l")
+skeleton = NodePath("")

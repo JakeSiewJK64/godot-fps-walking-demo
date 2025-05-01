@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwrdvyfg52fsv"]
+
+[ext_resource type="PackedScene" uid="uid://36pfa20xdr8k" path="res://scenes/Environment/Props/Floor.tscn" id="1_somdt"]
+[ext_resource type="PackedScene" uid="uid://chntysdt73lbe" path="res://scenes/Environment/Props/Stairs.tscn" id="2_50lnv"]
+
+[node name="Stairway" type="Node3D"]
+
+[node name="FloorGroup" parent="." instance=ExtResource("1_somdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37521, 0.373254, 0)
+
+[node name="Stairs" parent="." instance=ExtResource("2_50lnv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.49481)
+
+[node name="Stairs2" parent="." instance=ExtResource("2_50lnv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00188535, -0.00384808, 0.495215)
+
+[node name="Stairs3" parent="." instance=ExtResource("2_50lnv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.00193, -1.00118, -0.49481)
+
+[node name="Stairs4" parent="." instance=ExtResource("2_50lnv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.00382, -1.00502, 0.495215)
